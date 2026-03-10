@@ -678,26 +678,44 @@ input, textarea, select, button { font-family: inherit; }
 
 /* ── Partners section ───────────────────────────────────────── */
 .partners-section {
-  padding: 5rem 0;
-  background: var(--bg-dark);
+  padding: 4rem 0;
+  background: #fff;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-.partners-grid {
-  display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem;
+.suppliers-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem 2.5rem;
+  align-items: center;
+  justify-items: center;
+  margin-top: 2rem;
 }
-.partner-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-2xl);
-  padding: 1.5rem;
-  text-align: center;
-  transition: background var(--transition), border-color var(--transition);
+.supplier-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1.75rem;
+  border-radius: var(--radius-xl);
+  background: #fff;
+  border: 1.5px solid #d1d5db;
+  transition: box-shadow var(--transition), border-color var(--transition);
+  width: 100%;
+  height: 130px;
+  box-sizing: border-box;
 }
-.partner-card:hover { background: #fff5f5; border-color: var(--border-md); }
-.partner-card__flag { font-size: 2.25rem; margin-bottom: 0.75rem; }
-.partner-card__name { color: var(--text-900); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.25rem; }
-.partner-card__mills { color: var(--text-500); font-size: 0.75rem; line-height: 1.5; }
+.supplier-logo-item:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  border-color: #9ca3af;
+}
+.supplier-logo-item img {
+  max-width: 85%;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
 
 /* ── CTA section ────────────────────────────────────────────── */
 .cta-section {
@@ -1141,17 +1159,14 @@ input, textarea, select, button { font-family: inherit; }
 .floating-btn svg { width: 1.4rem; height: 1.4rem; fill: none; stroke: #fff; stroke-width: 2; }
 .floating-btn-phone { background: linear-gradient(135deg, #10b981, #0d9488); }
 .floating-btn-phone:hover { box-shadow: 0 4px 24px rgba(16,185,129,0.5); }
-.floating-btn-main {
-  background: linear-gradient(135deg, var(--fire-400), var(--fire-600));
-  box-shadow: var(--shadow-fire);
-}
-.floating-btn-main:hover { box-shadow: var(--shadow-fire-lg); }
+.floating-btn-zalo { background: transparent; border: none; box-shadow: none; text-decoration: none; padding: 0; width: 3.25rem; height: 3.25rem; }
+.floating-btn-zalo:hover { box-shadow: 0 4px 24px rgba(0,104,255,0.35); transform: scale(1.08); }
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .features-grid,
   .products-grid { grid-template-columns: repeat(2,1fr); }
-  .partners-grid { grid-template-columns: repeat(2,1fr); }
+  .suppliers-logo-grid { grid-template-columns: repeat(3,1fr); }
   .stats-grid    { grid-template-columns: repeat(2,1fr); }
   .all-products-grid { grid-template-columns: repeat(2,1fr); }
   .about-intro__grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -1163,9 +1178,9 @@ input, textarea, select, button { font-family: inherit; }
   .hamburger { display: flex; }
   .features-grid,
   .products-grid,
-  .partners-grid,
   .contact-cards-grid,
   .values-grid { grid-template-columns: 1fr; }
+  .suppliers-logo-grid { grid-template-columns: repeat(2,1fr); }
   .contact-main-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .advantages-grid { grid-template-columns: 1fr; }
