@@ -93,17 +93,65 @@
   cards.forEach((c) => c.classList.add("show"));
 })();
 
-// ── Contact form ─────────────────────────────────────────────
+// ── Contact form → Google Sheets ─────────────────────────────
 (function initContactForm() {
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbz5BoMBoyhupXJLooHLv8j13lK7k6q1irsp_xwQGJ-LEeOcApCT6MV0rqoe-yIWbFgq/exec";
+
   const form = document.getElementById("contact-form");
   const success = document.getElementById("form-success");
   if (!form || !success) return;
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    success.classList.add("show");
-    form.reset();
-    setTimeout(() => success.classList.remove("show"), 5000);
+
+    const submitBtn = form.querySelector(".form-submit");
+
+    const name    = (document.getElementById("cf-name")?.value    || "").trim();
+    const phone   = (document.getElementById("cf-phone")?.value   || "").trim();
+    const email   = (document.getElementById("cf-email")?.value   || "").trim();
+    const product = (document.getElementById("cf-product")?.value || "").trim();
+    const message = (document.getElementById("cf-message")?.value || "").trim();
+
+    if (!name || !phone || !email || !product || !message) {
+      alert("Vui lòng điền đầy đủ các trường bắt buộc (*)");
+      return;
+    }
+
+    // Disable button khi đang gửi
+    const originalText = submitBtn.textContent.trim();
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Đang gửi...";
+
+    const payload = {
+      name,
+      phone,
+      email,
+      company:  (document.getElementById("cf-company")?.value  || "").trim(),
+      product,
+      quantity: (document.getElementById("cf-quantity")?.value || "").trim(),
+      message,
+    };
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      // no-cors không trả response body → coi như thành công
+      form.reset();
+      success.classList.add("show");
+      setTimeout(() => success.classList.remove("show"), 6000);
+    } catch (_err) {
+      alert("Có lỗi xảy ra. Vui lòng gọi hotline: 0915 599 098");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML =
+        '<svg aria-hidden="true" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Gửi Yêu Cầu Báo Giá';
+    }
   });
 })();
 
