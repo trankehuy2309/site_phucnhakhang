@@ -1304,6 +1304,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+  margin-top: 10px;
 }
 .product-detail-card__specs li {
   font-size: 0.8rem;
@@ -1341,6 +1342,7 @@ button {
   gap: 0.5rem;
   width: 100%;
   padding: 0.7rem;
+  margin-top: auto;
   background: linear-gradient(135deg, var(--fire-400), var(--fire-600));
   color: #fff;
   font-size: 0.875rem;
