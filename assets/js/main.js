@@ -96,7 +96,7 @@
 // ── Contact form → Google Sheets ─────────────────────────────
 (function initContactForm() {
   const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbz5BoMBoyhupXJLooHLv8j13lK7k6q1irsp_xwQGJ-LEeOcApCT6MV0rqoe-yIWbFgq/exec";
+    "https://script.google.com/macros/s/AKfycbxFBvRrTKV1rJkQEaFsPNcY_IxxSJa8EdJhQvdgNRofC_ABpmmxHUiQpaRo2hzeZ70/exec";
 
   const form = document.getElementById("contact-form");
   const success = document.getElementById("form-success");
@@ -107,9 +107,9 @@
 
     const submitBtn = form.querySelector(".form-submit");
 
-    const name    = (document.getElementById("cf-name")?.value    || "").trim();
-    const phone   = (document.getElementById("cf-phone")?.value   || "").trim();
-    const email   = (document.getElementById("cf-email")?.value   || "").trim();
+    const name = (document.getElementById("cf-name")?.value || "").trim();
+    const phone = (document.getElementById("cf-phone")?.value || "").trim();
+    const email = (document.getElementById("cf-email")?.value || "").trim();
     const product = (document.getElementById("cf-product")?.value || "").trim();
     const message = (document.getElementById("cf-message")?.value || "").trim();
 
@@ -127,7 +127,7 @@
       name,
       phone,
       email,
-      company:  (document.getElementById("cf-company")?.value  || "").trim(),
+      company: (document.getElementById("cf-company")?.value || "").trim(),
       product,
       quantity: (document.getElementById("cf-quantity")?.value || "").trim(),
       message,
@@ -137,7 +137,7 @@
       await fetch(SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "text/plain" },
         body: JSON.stringify(payload),
       });
 
