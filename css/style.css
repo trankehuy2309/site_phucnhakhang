@@ -581,22 +581,30 @@ button {
 .hero__overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background: linear-gradient(
     to right,
-    rgba(255, 255, 255, 0.96) 0%,
-    rgba(255, 255, 255, 0.78) 50%,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(255, 255, 255, 0.97) 30%,
+    rgba(255, 255, 255, 0.55) 52%,
+    rgba(255, 255, 255, 0.08) 70%,
     transparent 100%
   );
 }
 .hero__overlay-bottom {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--bg-deep) 0%, transparent 40%);
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--bg-deep) 0%, transparent 30%);
 }
 .hero__grid {
   position: absolute;
   inset: 0;
-  opacity: 0.05;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.04;
   background-image:
     linear-gradient(rgba(220, 20, 20, 0.25) 1px, transparent 1px),
     linear-gradient(90deg, rgba(220, 20, 20, 0.25) 1px, transparent 1px);
@@ -612,6 +620,7 @@ button {
   border-radius: 50%;
   filter: blur(64px);
   pointer-events: none;
+  z-index: 2;
 }
 .hero__glow-2 {
   position: absolute;
@@ -623,15 +632,126 @@ button {
   border-radius: 50%;
   filter: blur(64px);
   pointer-events: none;
+  z-index: 2;
 }
 .hero__content {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   width: 100%;
   padding: 7rem 0 9rem;
 }
 .hero__inner {
   max-width: 48rem;
+}
+.hero__slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.hero__slides {
+  position: absolute;
+  inset: 0;
+}
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  z-index: 0;
+}
+.hero__slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+.hero__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── Slideshow as full hero background ──────────────────────── */
+.hero__slide-footer {
+  position: absolute;
+  bottom: 2rem;
+  right: 3rem;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.hero__slide-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--fire-600);
+  z-index: 4;
+  transition: none;
+}
+.hero__slide-progress-bar.animating {
+  transition: width 4s linear;
+  width: 100%;
+}
+.hero__slide-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.hero__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.35s ease;
+}
+.hero__dot.active {
+  width: 22px;
+  background: #fff;
+}
+.hero__dot:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.7);
+}
+.hero__slide-counter {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.hero__slide-arrows {
+  display: flex;
+  gap: 0.4rem;
+}
+.hero__slide-arrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.2s;
+  padding: 0;
+}
+.hero__slide-arrow:hover {
+  border-color: #fff;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.22);
+}
+@media (max-width: 768px) {
+  .hero__slide-footer {
+    right: 1.25rem;
+    bottom: 1.5rem;
+  }
 }
 .hero__title {
   font-size: clamp(2rem, 6vw, 4rem);
@@ -682,6 +802,7 @@ button {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 4;
   display: flex;
   flex-direction: column;
   align-items: center;

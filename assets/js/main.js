@@ -3,6 +3,61 @@
  * Pure vanilla JS for interactivity & scroll animations
  */
 
+// ── Hero Slideshow ───────────────────────────────────────────
+(function initHeroSlideshow() {
+  const slideshow = document.getElementById("heroSlideshow");
+  if (!slideshow) return;
+
+  const slides = slideshow.querySelectorAll(".hero__slide");
+  const dots = document.querySelectorAll(".hero__dot");
+  const prevBtn = document.getElementById("heroPrev");
+  const nextBtn = document.getElementById("heroNext");
+  const counter = document.getElementById("heroSlideCurrentNum");
+  const progressBar = document.getElementById("heroProgressBar");
+
+  const TOTAL = slides.length;
+  const INTERVAL = 4000;
+  let current = 0;
+  let timer = null;
+
+  function goTo(idx) {
+    slides[current].classList.remove("active");
+    dots[current].classList.remove("active");
+    dots[current].setAttribute("aria-selected", "false");
+
+    current = (idx + TOTAL) % TOTAL;
+
+    slides[current].classList.add("active");
+    dots[current].classList.add("active");
+    dots[current].setAttribute("aria-selected", "true");
+    if (counter) counter.textContent = String(current + 1).padStart(2, "0");
+
+    if (progressBar) {
+      progressBar.classList.remove("animating");
+      void progressBar.offsetWidth; // force reflow
+      progressBar.classList.add("animating");
+    }
+  }
+
+  function startAuto() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), INTERVAL);
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => { goTo(parseInt(dot.dataset.idx, 10)); startAuto(); });
+  });
+
+  if (prevBtn) prevBtn.addEventListener("click", () => { goTo(current - 1); startAuto(); });
+  if (nextBtn) nextBtn.addEventListener("click", () => { goTo(current + 1); startAuto(); });
+
+  slideshow.addEventListener("mouseenter", () => clearInterval(timer));
+  slideshow.addEventListener("mouseleave", () => startAuto());
+
+  goTo(0);
+  startAuto();
+})();
+
 // ── Sticky header scroll class ───────────────────────────────
 (function initStickyHeader() {
   const header = document.querySelector(".site-header");
@@ -77,20 +132,30 @@
   const cards = document.querySelectorAll(".product-detail-card");
   if (!filterBtns.length) return;
 
+  function applyFilter(cat) {
+    filterBtns.forEach((b) => {
+      const match = b.dataset.cat === cat;
+      b.classList.toggle("active", match);
+      b.setAttribute("aria-pressed", String(match));
+    });
+    cards.forEach((card) => {
+      const match = cat === "all" || card.dataset.category === cat;
+      card.classList.toggle("show", match);
+    });
+  }
+
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      filterBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
       const cat = btn.dataset.cat;
-      cards.forEach((card) => {
-        const match = cat === "all" || card.dataset.category === cat;
-        card.classList.toggle("show", match);
-      });
+      history.replaceState(null, "", cat === "all" ? "/san-pham" : "#" + cat);
+      applyFilter(cat);
     });
   });
-  // Show all initially
-  cards.forEach((c) => c.classList.add("show"));
+
+  // Activate from URL hash on load
+  const hashCat = window.location.hash.replace("#", "");
+  const validCats = Array.from(filterBtns).map((b) => b.dataset.cat);
+  applyFilter(validCats.includes(hashCat) ? hashCat : "all");
 })();
 
 // ── Contact form → Google Sheets ─────────────────────────────

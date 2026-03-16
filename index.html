@@ -234,23 +234,35 @@
     <main id="main-content">
       <!-- ── HERO ──────────────────────────────────────────────── -->
       <section class="hero" aria-label="Giới thiệu Phúc Nhã Khang">
-        <div class="hero__bg" aria-hidden="true">
-          <img
-            src="https://images.unsplash.com/photo-1697281679290-ad7be1b10682?w=1600&q=80&auto=format"
-            alt=""
-            role="presentation"
-            loading="eager"
-            fetchpriority="high"
-            width="1600"
-            height="900"
-          />
+        <!-- Background slideshow (full bleed) -->
+        <div class="hero__slideshow" id="heroSlideshow" aria-hidden="true">
+          <div class="hero__slides">
+            <div class="hero__slide active">
+              <img src="/assets/img/slide/slide6.png" alt="" role="presentation" loading="eager" />
+            </div>
+            <div class="hero__slide">
+              <img src="/assets/img/slide/slide7.png" alt="" role="presentation" loading="lazy" />
+            </div>
+            <div class="hero__slide">
+              <img src="/assets/img/slide/slide8.png" alt="" role="presentation" loading="lazy" />
+            </div>
+            <div class="hero__slide">
+              <img src="/assets/img/slide/slide4.png" alt="" role="presentation" loading="lazy" />
+            </div>
+            <div class="hero__slide">
+              <img src="/assets/img/slide/slide9.png" alt="" role="presentation" loading="lazy" />
+            </div>
+          </div>
         </div>
+
+        <!-- Overlays -->
         <div class="hero__overlay" aria-hidden="true"></div>
         <div class="hero__overlay-bottom" aria-hidden="true"></div>
         <div class="hero__grid" aria-hidden="true"></div>
         <div class="hero__glow-1" aria-hidden="true"></div>
         <div class="hero__glow-2" aria-hidden="true"></div>
 
+        <!-- Text content -->
         <div class="container hero__content">
           <div class="hero__inner">
             <span class="badge fade-up" data-delay="0">
@@ -259,50 +271,52 @@
             </span>
 
             <h1 class="hero__title fade-up" data-delay="0.1">
-              <span class="hero__title-top"
-                >THÉP KHÔNG GỈ - BỀN BỈ VỚI THỜI GIAN</span
-              >
-              <!-- <br /> -->
-              <!-- <span class="grad-text"></span> -->
+              <span class="hero__title-top">THÉP KHÔNG GỈ - BỀN BỈ VỚI THỜI GIAN</span>
             </h1>
 
             <p class="hero__subtitle fade-up" data-delay="0.25">
-              <!-- Tấm inox, cuộn inox các loại <strong>304, 316, 201, 430, 310S, 904L</strong> — nguồn gốc xuất xứ rõ ràng, giá cạnh tranh, giao hàng nhanh toàn quốc. -->
               Nhập khẩu và phân phối Thép không gỉ đa dạng các chuẩn loại
               <strong> 201, 304, 430, 310s, 409L, 316, 316L </strong> và các mác
               thép đặc biệt <strong> 253MA, Duplex ...</strong>
             </p>
 
             <div class="hero__cta fade-up" data-delay="0.4">
-              <a
-                href="/san-pham"
-                class="btn-primary"
-                aria-label="Xem danh mục sản phẩm inox"
-              >
+              <a href="/san-pham" class="btn-primary" aria-label="Xem danh mục sản phẩm inox">
                 Xem Sản Phẩm
-                <svg
-                  aria-hidden="true"
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
+                <svg aria-hidden="true" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
               </a>
-              <a
-                href="/lien-he"
-                class="btn-outline"
-                aria-label="Gửi yêu cầu báo giá"
-              >
+              <a href="/lien-he" class="btn-outline" aria-label="Gửi yêu cầu báo giá">
                 Yêu Cầu Báo Giá
               </a>
             </div>
           </div>
         </div>
+
+        <!-- Slide controls (outside slideshow, above overlays) -->
+        <div class="hero__slide-footer" aria-label="Điều hướng slideshow">
+          <div class="hero__slide-arrows">
+            <button class="hero__slide-arrow" id="heroPrev" aria-label="Slide trước">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6" /></svg>
+            </button>
+            <button class="hero__slide-arrow" id="heroNext" aria-label="Slide tiếp theo">
+              <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6" /></svg>
+            </button>
+          </div>
+          <div class="hero__slide-dots" role="tablist" aria-label="Chọn slide">
+            <button class="hero__dot active" data-idx="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+            <button class="hero__dot" data-idx="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+            <button class="hero__dot" data-idx="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+            <button class="hero__dot" data-idx="3" role="tab" aria-selected="false" aria-label="Slide 4"></button>
+            <button class="hero__dot" data-idx="4" role="tab" aria-selected="false" aria-label="Slide 5"></button>
+          </div>
+          <div class="hero__slide-counter" aria-live="polite">
+            <span id="heroSlideCurrentNum">01</span> / 05
+          </div>
+        </div>
+        <div class="hero__slide-progress-bar" id="heroProgressBar" aria-hidden="true"></div>
 
         <div class="hero__scroll" aria-hidden="true">
           <span>Cuộn xuống</span>
@@ -922,45 +936,6 @@
               </div>
             </a>
             <p>Chuyên nhập khẩu và phân phối Inox toàn quốc.</p>
-            <!-- <div class="footer-social" aria-label="Mạng xã hội">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook Phúc Nhã Khang"
-              >
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                  />
-                </svg>
-              </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube Phúc Nhã Khang"
-              >
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.97A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"
-                  />
-                  <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
-                </svg>
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram Phúc Nhã Khang"
-              >
-                <svg viewBox="0 0 24 24">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                </svg>
-              </a>
-            </div> -->
           </div>
 
           <!-- Nav -->
@@ -978,12 +953,11 @@
           <div class="footer-col">
             <h4>Sản Phẩm</h4>
             <ul class="footer-links">
-              <li><a href="/san-pham">Tấm Inox 304</a></li>
-              <li><a href="/san-pham">Tấm Inox 316/316L</a></li>
-              <li><a href="/san-pham">Cuộn Inox 201</a></li>
-              <li><a href="/san-pham">Cuộn Inox 430</a></li>
-              <li><a href="/san-pham">Inox 310S</a></li>
-              <li><a href="/san-pham">Inox 904L</a></li>
+              <li><a href="/san-pham#tam">Thép không gỉ – Tấm &amp; Cuộn</a></li>
+              <li><a href="/san-pham#hinh">Thép không gỉ – Hình</a></li>
+              <li><a href="/san-pham#ong">Thép không gỉ – Ống</a></li>
+              <li><a href="/san-pham#phukien">Phụ kiện</a></li>
+              <li><a href="/san-pham#dacbiet">Sản phẩm khác</a></li>
             </ul>
           </div>
 
