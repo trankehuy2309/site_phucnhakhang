@@ -560,110 +560,18 @@ button {
   }
 }
 
-/* ── ─── HERO ─────────────────────────────────────────────── */
-/* ── HERO – Split Layout (text left | slideshow right) ──────── */
+/* ── HERO – Full-screen Cinematic Slideshow ──────────────── */
 .hero {
-  display: flex;
+  position: relative;
   height: calc(100vh - 96px);
-  min-height: 520px;
+  min-height: 560px;
   overflow: hidden;
-  position: relative;
 }
-/* Bottom fade — hides the hard clip edge */
 .hero::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 90px;
-  background: linear-gradient(to bottom, transparent 0%, var(--bg-deep) 100%);
-  z-index: 10;
-  pointer-events: none;
+  display: none;
 }
 
-/* ─ Left panel: text ──────────────────────────────────────── */
-.hero__left {
-  flex: 0 0 52%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  background: var(--bg-deep);
-  padding: 6rem max(3rem, 5vw) 5rem
-    max(2.5rem, calc((100vw - 1280px) / 2 + 3rem));
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* ─ Right panel: slideshow ───────────────────────────────── */
-.hero__right {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-}
-/* Soft gradient fade bridging left → right */
-.hero__right::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 100px;
-  background: linear-gradient(to right, var(--bg-deep) 0%, transparent 100%);
-  z-index: 4;
-  pointer-events: none;
-}
-
-/* ─ Decorative elements in left panel ───────────────────── */
-.hero__grid {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.045;
-  background-image:
-    linear-gradient(rgba(220, 20, 20, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(220, 20, 20, 0.3) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-.hero__glow-1 {
-  position: absolute;
-  top: 20%;
-  right: 10%;
-  width: 22rem;
-  height: 22rem;
-  background: rgba(220, 20, 20, 0.06);
-  border-radius: 50%;
-  filter: blur(64px);
-  pointer-events: none;
-  z-index: 0;
-}
-.hero__glow-2 {
-  position: absolute;
-  bottom: 15%;
-  left: 5%;
-  width: 14rem;
-  height: 14rem;
-  background: rgba(239, 48, 48, 0.05);
-  border-radius: 50%;
-  filter: blur(54px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ─ Content block ────────────────────────────────────────── */
-.hero__content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 500px;
-}
-.hero__inner {
-  max-width: 48rem;
-}
-
-/* ─ Slideshow fills right panel ─────────────────────────── */
+/* ─ Full-screen slideshow background ────────────────────── */
 .hero__slideshow {
   position: absolute;
   inset: 0;
@@ -678,7 +586,7 @@ button {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.9s ease;
+  transition: opacity 1s ease;
   z-index: 0;
 }
 .hero__slide.active {
@@ -692,12 +600,87 @@ button {
   object-position: center;
 }
 
-/* ─ Slide controls within right panel ───────────────────── */
+/* ─ Gradient overlay for text readability ───────────────── */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(
+      to right,
+      rgba(5, 7, 12, 0.80) 0%,
+      rgba(5, 7, 12, 0.55) 40%,
+      rgba(5, 7, 12, 0.15) 68%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(5, 7, 12, 0.60) 0%,
+      transparent 45%
+    );
+}
+
+/* ─ Content overlay ─────────────────────────────────────── */
+.hero__content-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  padding: 2rem max(3rem, calc((100vw - 1280px) / 2 + 3rem));
+}
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+}
+
+/* ─ Text styles (white over image) ──────────────────────── */
+.hero__title {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 1.25rem 0;
+}
+.hero__title-top {
+  display: block;
+  color: #ff3b3b;
+  position: relative;
+  padding-bottom: 0.35em;
+}
+.hero__title-sub {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.8);
+  font-size: 0.68em;
+  font-weight: 900;
+  margin-top: 0.45rem;
+  letter-spacing: 0.02em;
+}
+.hero__subtitle {
+  font-size: 0.975rem;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 38rem;
+  line-height: 1.72;
+  margin-bottom: 2.25rem;
+}
+.hero__subtitle strong {
+  color: rgba(255, 255, 255, 0.96);
+}
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ─ Slide controls ───────────────────────────────────────── */
 .hero__slide-footer {
   position: absolute;
-  bottom: 1.75rem;
-  right: 2rem;
-  z-index: 5;
+  bottom: 2rem;
+  left: max(3rem, calc((100vw - 1280px) / 2 + 3rem));
+  z-index: 11;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -709,7 +692,7 @@ button {
   height: 3px;
   width: 0%;
   background: var(--fire-600);
-  z-index: 5;
+  z-index: 11;
   transition: none;
 }
 .hero__slide-progress-bar.animating {
@@ -769,93 +752,6 @@ button {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* ─ Text styles ─────────────────────────────────────────── */
-.hero__title {
-  font-size: clamp(1.9rem, 3vw, 3rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  color: var(--text-900);
-  margin: 1.25rem 0;
-}
-.hero__title-top {
-  display: block;
-  color: var(--fire-600);
-  position: relative;
-  padding-bottom: 0.35em;
-}
-/* .hero__title-top::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60%;
-  height: 3px;
-  background: linear-gradient(to right, var(--fire-500), transparent);
-  border-radius: 2px;
-} */
-.hero__title-sub {
-  display: block;
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--text-900);
-  font-size: 0.68em;
-  font-weight: 900;
-  margin-top: 0.45rem;
-  letter-spacing: 0.02em;
-}
-.hero__subtitle {
-  font-size: 0.975rem;
-  color: var(--text-500);
-  max-width: 38rem;
-  line-height: 1.72;
-  margin-bottom: 2.25rem;
-}
-.hero__cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.hero__stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
-}
-.hero__stat-value {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--text-900);
-  letter-spacing: -0.02em;
-  display: block;
-}
-.hero__stat-label {
-  font-size: 0.8rem;
-  color: var(--text-500);
-}
-
-/* ─ Decorative label line ────────────────────────────────── */
-.hero__label-line {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 2.25rem;
-}
-.hero__label-line-bar {
-  flex: 0 0 40px;
-  height: 2px;
-  background: var(--fire-500);
-  border-radius: 1px;
-}
-.hero__label-line-text {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-400);
-}
-
 /* ─ Scroll hint ─────────────────────────────────────────── */
 .hero__scroll {
   position: absolute;
@@ -868,7 +764,7 @@ button {
   justify-content: center;
 }
 .hero__scroll-arrow {
-  color: var(--text-400);
+  color: rgba(255, 255, 255, 0.5);
   opacity: 0.6;
   animation: scrollBounce 1.8s ease-in-out infinite;
 }
@@ -884,32 +780,58 @@ button {
   }
 }
 
+/* ─ Button overrides on dark hero overlay ───────────────── */
+.hero__content .btn-outline {
+  color: rgba(255, 255, 255, 0.90);
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+}
+.hero__content .btn-outline:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.70);
+  background: rgba(255, 255, 255, 0.16);
+}
+
 /* ─ Responsive ──────────────────────────────────────────── */
 @media (max-width: 960px) {
   .hero {
-    flex-direction: column;
-    height: auto;
-    max-height: none;
+    height: 85vw;
+    min-height: 420px;
+    max-height: 640px;
   }
-  .hero__left {
-    flex: none;
-    padding: 5.5rem 1.75rem 2.5rem;
-    min-height: auto;
-  }
-  .hero__right {
-    flex: none;
-    height: 55vw;
-    min-height: 240px;
-    max-height: 400px;
-  }
-  .hero__right::before {
-    display: none;
+  .hero__content-wrap {
+    align-items: flex-end;
+    padding-bottom: 5.5rem;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    padding-top: 0;
   }
   .hero__content {
     max-width: 100%;
   }
+  .hero__title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  .hero__subtitle {
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero__slide-footer {
+    left: 1.75rem;
+    bottom: 1.5rem;
+  }
   .hero__scroll {
     display: none;
+  }
+  .hero__overlay {
+    background:
+      linear-gradient(
+        to top,
+        rgba(5, 7, 12, 0.85) 0%,
+        rgba(5, 7, 12, 0.40) 55%,
+        transparent 100%
+      );
   }
 }
 
