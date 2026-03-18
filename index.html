@@ -202,6 +202,7 @@
             <a href="/gioi-thieu">Giới Thiệu</a>
             <a href="/san-pham">Sản Phẩm</a>
             <a href="/dich-vu">Dịch Vụ</a>
+            <a href="/tin-tuc">Tin Tức</a>
             <a href="/lien-he">Liên Hệ</a>
           </nav>
 
@@ -225,6 +226,7 @@
         <a href="/gioi-thieu">Giới Thiệu</a>
         <a href="/san-pham">Sản Phẩm</a>
         <a href="/dich-vu">Dịch Vụ</a>
+        <a href="/tin-tuc">Tin Tức</a>
         <a href="/lien-he">Liên Hệ</a>
         <a href="/lien-he" class="btn-mobile">Báo Giá Ngay</a>
       </nav>
@@ -236,77 +238,27 @@
     <main id="main-content">
       <!-- ── HERO ──────────────────────────────────────────────── -->
       <section class="hero" aria-label="Giới thiệu Phúc Nhã Khang">
-        <!-- Background slideshow (full bleed) -->
-        <div class="hero__slideshow" id="heroSlideshow" aria-hidden="true">
-          <div class="hero__slides">
-            <div class="hero__slide active">
-              <img
-                src="/assets/img/slide/slide6.png"
-                alt=""
-                role="presentation"
-                loading="eager"
-              />
-            </div>
-            <div class="hero__slide">
-              <img
-                src="/assets/img/slide/slide7.png"
-                alt=""
-                role="presentation"
-                loading="lazy"
-              />
-            </div>
-            <div class="hero__slide">
-              <img
-                src="/assets/img/slide/slide8.png"
-                alt=""
-                role="presentation"
-                loading="lazy"
-              />
-            </div>
-            <div class="hero__slide">
-              <img
-                src="/assets/img/slide/slide4.png"
-                alt=""
-                role="presentation"
-                loading="lazy"
-              />
-            </div>
-            <div class="hero__slide">
-              <img
-                src="/assets/img/slide/slide9.png"
-                alt=""
-                role="presentation"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </div>
+        <!-- LEFT: Text content -->
+        <div class="hero__left">
+          <div class="hero__grid" aria-hidden="true"></div>
+          <div class="hero__glow-1" aria-hidden="true"></div>
+          <div class="hero__glow-2" aria-hidden="true"></div>
 
-        <!-- Overlays -->
-        <div class="hero__overlay" aria-hidden="true"></div>
-        <div class="hero__overlay-bottom" aria-hidden="true"></div>
-        <div class="hero__grid" aria-hidden="true"></div>
-        <div class="hero__glow-1" aria-hidden="true"></div>
-        <div class="hero__glow-2" aria-hidden="true"></div>
-
-        <!-- Text content -->
-        <div class="container hero__content">
-          <div class="hero__inner">
+          <div class="hero__content">
             <span class="badge fade-up" data-delay="0">
               <span class="badge__dot" aria-hidden="true"></span>
               Nhà phân phối inox hàng đầu Việt Nam
             </span>
 
             <h1 class="hero__title fade-up" data-delay="0.1">
-              <span class="hero__title-top"
-                >THÉP KHÔNG GỈ - BỀN BỈ VỚI THỜI GIAN</span
-              >
+              <span class="hero__title-top">THÉP KHÔNG GỈ</span>
+              <span class="hero__title-top">BỀN BỈ VỚI THỜI GIAN</span>
             </h1>
 
             <p class="hero__subtitle fade-up" data-delay="0.25">
               Nhập khẩu và phân phối Thép không gỉ đa dạng các chuẩn loại
-              <strong> 201, 304, 430, 310s, 409L, 316, 316L </strong> và các mác
-              thép đặc biệt <strong> 253MA, Duplex ...</strong>
+              <strong>201, 304, 430, 310s, 409L, 316, 316L</strong> và các mác
+              thép đặc biệt <strong>253MA, Duplex...</strong>
             </p>
 
             <div class="hero__cta fade-up" data-delay="0.4">
@@ -340,95 +292,153 @@
           </div>
         </div>
 
-        <!-- Slide controls (outside slideshow, above overlays) -->
-        <div class="hero__slide-footer" aria-label="Điều hướng slideshow">
-          <div class="hero__slide-arrows">
-            <button
-              class="hero__slide-arrow"
-              id="heroPrev"
-              aria-label="Slide trước"
-            >
-              <svg
-                width="14"
-                height="14"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-            </button>
-            <button
-              class="hero__slide-arrow"
-              id="heroNext"
-              aria-label="Slide tiếp theo"
-            >
-              <svg
-                width="14"
-                height="14"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </button>
+        <!-- RIGHT: Slideshow -->
+        <div class="hero__right">
+          <div class="hero__slideshow" id="heroSlideshow">
+            <div class="hero__slides">
+              <div class="hero__slide active">
+                <img
+                  src="/assets/img/slide/slide6.png"
+                  alt="Tấm cuộn inox nhập khẩu Phúc Nhã Khang"
+                  loading="eager"
+                />
+              </div>
+              <div class="hero__slide">
+                <img
+                  src="/assets/img/slide/slide7.png"
+                  alt="Inox 304 316 nhập khẩu chính hãng"
+                  loading="lazy"
+                />
+              </div>
+              <div class="hero__slide">
+                <img
+                  src="/assets/img/slide/slide8.png"
+                  alt="Kho inox Phúc Nhã Khang"
+                  loading="lazy"
+                />
+              </div>
+              <div class="hero__slide">
+                <img
+                  src="/assets/img/slide/slide4.png"
+                  alt="Inox tấm cuộn hình ống phân phối toàn quốc"
+                  loading="lazy"
+                />
+              </div>
+              <div class="hero__slide">
+                <img
+                  src="/assets/img/slide/slide9.png"
+                  alt="Phân phối inox toàn quốc"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
-          <div class="hero__slide-dots" role="tablist" aria-label="Chọn slide">
-            <button
-              class="hero__dot active"
-              data-idx="0"
-              role="tab"
-              aria-selected="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              class="hero__dot"
-              data-idx="1"
-              role="tab"
-              aria-selected="false"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              class="hero__dot"
-              data-idx="2"
-              role="tab"
-              aria-selected="false"
-              aria-label="Slide 3"
-            ></button>
-            <button
-              class="hero__dot"
-              data-idx="3"
-              role="tab"
-              aria-selected="false"
-              aria-label="Slide 4"
-            ></button>
-            <button
-              class="hero__dot"
-              data-idx="4"
-              role="tab"
-              aria-selected="false"
-              aria-label="Slide 5"
-            ></button>
-          </div>
-          <div class="hero__slide-counter" aria-live="polite">
-            <span id="heroSlideCurrentNum">01</span> / 05
-          </div>
-        </div>
-        <div
-          class="hero__slide-progress-bar"
-          id="heroProgressBar"
-          aria-hidden="true"
-        ></div>
 
-        <div class="hero__scroll" aria-hidden="true">
-          <span>Cuộn xuống</span>
-          <div class="hero__scroll-line"></div>
+          <!-- Slide controls -->
+          <div class="hero__slide-footer" aria-label="Điều hướng slideshow">
+            <!-- <div class="hero__slide-arrows">
+              <button
+                class="hero__slide-arrow"
+                id="heroPrev"
+                aria-label="Slide trước"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+              </button>
+              <button
+                class="hero__slide-arrow"
+                id="heroNext"
+                aria-label="Slide tiếp theo"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+              </button>
+            </div> -->
+            <div
+              class="hero__slide-dots"
+              role="tablist"
+              aria-label="Chọn slide"
+            >
+              <button
+                class="hero__dot active"
+                data-idx="0"
+                role="tab"
+                aria-selected="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                class="hero__dot"
+                data-idx="1"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                class="hero__dot"
+                data-idx="2"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 3"
+              ></button>
+              <button
+                class="hero__dot"
+                data-idx="3"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 4"
+              ></button>
+              <button
+                class="hero__dot"
+                data-idx="4"
+                role="tab"
+                aria-selected="false"
+                aria-label="Slide 5"
+              ></button>
+            </div>
+            <!-- <div class="hero__slide-counter" aria-live="polite">
+              <span id="heroSlideCurrentNum">01</span> / 05
+            </div> -->
+          </div>
+          <div
+            class="hero__slide-progress-bar"
+            id="heroProgressBar"
+            aria-hidden="true"
+          ></div>
         </div>
+
+        <!-- <div class="hero__scroll" aria-hidden="true">
+          <svg
+            class="hero__scroll-arrow"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </div> -->
       </section>
 
       <!-- ── STATS BAND ─────────────────────────────────────────── -->
@@ -1077,6 +1087,14 @@
                 </div>
                 <a href="mailto:info@phucnhakhang.vn">info@phucnhakhang.vn</a>
               </li>
+              <li class="footer-contact-item">
+                <div class="footer-contact-item__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                  </svg>
+                </div>
+                <a href="https://www.facebook.com/share/18VFPzzHsW/" target="_blank" rel="noopener noreferrer">Facebook Phúc Nhã Khang</a>
+              </li>
             </ul>
           </address>
         </div>
@@ -1087,7 +1105,7 @@
         <div class="container">
           <div class="footer-bottom__inner">
             <p>© 2026 Phúc Nhã Khang. All rights reserved.</p>
-            <p>Chuyên cung cấp Inox 304 · 316 · 201 · 430 · 310S </p>
+            <p>Chuyên cung cấp Inox 304 · 316 · 201 · 430 · 310S</p>
           </div>
         </div>
       </div>
@@ -1099,6 +1117,19 @@
       role="complementary"
       aria-label="Liên hệ nhanh"
     >
+      <!-- Facebook -->
+      <a
+        href="https://www.facebook.com/share/18VFPzzHsW/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="floating-btn floating-btn-facebook"
+        aria-label="Facebook Phúc Nhã Khang"
+        title="Facebook"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" style="fill:#fff;stroke:none">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+      </a>
       <!-- Zalo -->
       <a
         href="https://zalo.me/0915599098"
