@@ -99,44 +99,32 @@
     </header>
 
     <main id="main-content">
-      <!-- PAGE HERO -->
-      <section class="page-hero" aria-label="Tin tức Phúc Nhã Khang">
-        <div class="page-hero__bg" aria-hidden="true">
-          <img
-            src="/assets/img/slide/slide6.png"
-            alt=""
-            role="presentation"
-            loading="eager"
-            fetchpriority="high"
-            width="1600"
-            height="600"
-          />
+
+      <!-- PAGE HERO – compact -->
+      <section style="position:relative;padding:4.5rem 0 1.5rem;overflow:hidden;text-align:center;" aria-label="Tin tức Phúc Nhã Khang">
+        <!-- bg image -->
+        <div style="position:absolute;inset:0;">
+          <img src="/assets/img/slide/slide6.png" alt="" role="presentation" loading="eager" fetchpriority="high" width="1600" height="400" style="width:100%;height:100%;object-fit:cover;opacity:0.12;" />
         </div>
-        <div class="page-hero__overlay" aria-hidden="true"></div>
-        <div class="page-hero__grid" aria-hidden="true"></div>
-        <div class="page-hero__content container">
-          <div class="page-hero__label" aria-hidden="true">
-            <span class="page-hero__label-line"></span>
+        <!-- gradient overlay -->
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,0.6) 0%,var(--bg-deep) 100%);"></div>
+        <!-- grid pattern -->
+        <div style="position:absolute;inset:0;opacity:0.04;background-image:linear-gradient(rgba(220,20,20,0.3) 1px,transparent 1px),linear-gradient(90deg,rgba(220,20,20,0.3) 1px,transparent 1px);background-size:40px 40px;"></div>
+        <!-- content -->
+        <div class="container" style="position:relative;z-index:1;">
+          <div style="display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--fire-500);margin-bottom:0.9rem;">
+            <span style="width:2rem;height:1px;background:var(--fire-500);display:inline-block;"></span>
             Thị Trường &amp; Kiến Thức Inox
-            <span class="page-hero__label-line"></span>
+            <span style="width:2rem;height:1px;background:var(--fire-500);display:inline-block;"></span>
           </div>
-          <h1 class="page-hero__title">TIN TỨC INOX</h1>
-          <p class="page-hero__desc">
-            Cập nhật xu hướng thị trường, phân tích kỹ thuật và kiến thức chọn dùng inox
-            từ đội ngũ chuyên gia Phúc Nhã Khang
-          </p>
+          <h1 id="news-heading" style="font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;letter-spacing:-0.03em;color:var(--text-900);margin-bottom:0.9rem;">TIN TỨC INOX</h1>
+          <p style="font-size:1rem;color:var(--text-500);max-width:40rem;margin:0 auto;">Cập nhật xu hướng thị trường, phân tích kỹ thuật và kiến thức chọn dùng inox từ đội ngũ chuyên gia Phúc Nhã Khang</p>
         </div>
       </section>
 
       <!-- NEWS GRID -->
-      <section class="news-section" aria-labelledby="news-heading">
+      <section class="news-section" style="padding-top: 1.5rem;" aria-labelledby="news-heading">
         <div class="container">
-          <header class="features-header fade-up" data-delay="0">
-            <span class="section-eyebrow">Bài viết mới nhất</span>
-            <h2 id="news-heading">TIN TỨC & KIẾN THỨC INOX</h2>
-            <p>Cập nhật thị trường, kiến thức chuyên sâu và hướng dẫn sử dụng inox từ đội ngũ chuyên gia Phúc Nhã Khang</p>
-          </header>
-
           <div class="news-grid fade-up" data-delay="0.1">
 
             <!-- Bài 1 – Featured -->
