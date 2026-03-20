@@ -794,27 +794,38 @@ button {
 /* ─ Responsive ──────────────────────────────────────────── */
 @media (max-width: 960px) {
   .hero {
-    height: 85vw;
-    min-height: 420px;
-    max-height: 640px;
+    height: auto;
+    min-height: 580px;
+    max-height: none;
   }
   .hero__content-wrap {
-    align-items: flex-end;
-    padding-bottom: 5.5rem;
+    align-items: flex-start;
+    padding-top: 4rem;
+    padding-bottom: 7rem;
     padding-left: 1.25rem;
-    padding-right: 0;
-    padding-top: 0;
+    padding-right: 1.25rem;
   }
   .hero__content {
-    max-width: 65%;
-    width: 65%;
+    max-width: 88%;
+    width: 88%;
   }
   .hero__title {
-    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-size: clamp(1.75rem, 7vw, 2.4rem);
   }
   .hero__subtitle {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     margin-bottom: 1.5rem;
+  }
+  .hero__cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero__cta .btn-primary,
+  .hero__cta .btn-outline {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.9rem 1.5rem;
   }
   .hero__slide-footer {
     left: 1.75rem;
@@ -905,8 +916,9 @@ button {
 .page-hero__desc {
   font-size: 1.05rem;
   color: var(--text-500);
-  max-width: 42rem;
+  max-width: 60rem;
   margin: 0 auto;
+  white-space: nowrap;
 }
 
 /* ── Stats band ─────────────────────────────────────────────── */
