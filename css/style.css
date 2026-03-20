@@ -1278,6 +1278,10 @@ button {
   object-fit: contain;
   display: block;
 }
+.supplier-logo-item.logo-zoom img {
+  max-width: 95%;
+  max-height: 110px;
+}
 
 /* ── CTA section ────────────────────────────────────────────── */
 .cta-section {
